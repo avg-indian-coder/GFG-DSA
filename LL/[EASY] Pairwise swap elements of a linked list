@@ -1,0 +1,38 @@
+Link: https://practice.geeksforgeeks.org/problems/pairwise-swap-elements-of-a-linked-list-by-swapping-data/1?page=2&category[]=Linked%20List&sortBy=submissions
+
+Algorithm:
+3 pointers are used, first, second and third. Second points to the current node, third the next, and first the previous.
+We keep swapping each successive nodes until the third pointer gets a value NULL.
+There are separate cases for initial case (first points to NULL) and every other case.
+
+Code:
+Node* pairWiseSwap(struct Node* head) 
+    {
+        Node *first,*second,*third;
+        first = NULL;
+        second = head;
+        third = head->next;
+        
+        while(true)
+        {
+            if(third == NULL) break;
+            if(first == NULL) // first case
+            {
+                second->next = third->next;
+                third->next = second;
+                head = third;
+            }
+            else
+            {
+                second->next = third->next;
+                third->next = second;
+                first->next = third;
+            }
+            first = second;
+            second = first->next;
+            if(second == NULL) break;
+            third = second->next;
+        }
+        
+        return head;
+    }
