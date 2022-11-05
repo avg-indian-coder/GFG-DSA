@@ -1,14 +1,13 @@
-// Link: https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1?page=1&category[]=Linked%20List&sortBy=submissions
+Link: https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1?page=1&category[]=Linked%20List&sortBy=submissions
 
-/*
 Algorithm:
 Followed Floyd's cycle finding algorithm, using a fast and slow pointer. 
 The slow pointer advances by 1 node, and the fast by 2.
 If at any point, the two pointers are pointing to the same node, there is a cycle in the list.
 Else, if there is no loop, the fast pointer reaches NULL
 This and other algos: https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
-*/
 
+Function:
 bool detectLoop(Node* head)
     {
         Node *slow_t,*fast_t;
