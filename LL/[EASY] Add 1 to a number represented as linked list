@@ -1,0 +1,28 @@
+Link: https://practice.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1?page=1&category[]=Linked%20List&sortBy=submissions
+
+Algorithm:
+Recursive algorithm is used.
+If head->next == NULL, we've reached the unit's place. So we add 1 here, and we return the node.
+For every other node, we check if the next node has a value = 10. If it does, then we make its value = 0, and carry the extra 1 to the present node. This keeps happening
+recursively
+
+Code:
+Node* addOne(Node *head) 
+    {
+        if(head->next == NULL)
+        {
+            head->data ++;
+            return head;
+        }
+        else
+        {
+            Node* temp = addOne(head->next);
+            if(temp->data == 10)
+            {
+                temp->data = 0;
+                head->data += 1;
+            }
+            head->next = temp;
+            return head;
+        }
+    }
